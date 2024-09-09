@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Welcome to the {{ user_type }} Dashboard</h2>
+    <p>This is your dashboard where you can manage your activities.</p>
+    <!-- Add different content based on user_type -->
+    {% if user_type == 'patients' %}
+        <p>Check available beds and book OPD appointments.</p>
+    {% elif user_type == 'doctors' %}
+        <p>Manage patient queues and assign beds.</p>
+    {% elif user_type == 'staff' %}
+        <p>Assist with patient admissions and medicine dispensation.</p>
+    {% elif user_type == 'admins' %}
+        <p>Manage hospital resources, inventory, and staff activities.</p>
+    {% endif %}
+    <br>
+    <a href="/logout">Logout</a>
+</body>
+</html>
