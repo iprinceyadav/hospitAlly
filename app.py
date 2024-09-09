@@ -56,6 +56,9 @@ def dashboard():
     else:
         return redirect(url_for('login'))
 
+    if 'email' in dual:
+        return render_templat
+
 
 
 
@@ -64,6 +67,7 @@ def dashboard():
 def logout():
     session.pop('email', None)
     return redirect(url_for('login'))
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
