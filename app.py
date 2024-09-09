@@ -42,13 +42,13 @@ def signup():
         email = request.form['email']
         password = generate_password_hash(request.form['password'])
         
-        # Store the user in the respective collection based on user_type
+        
         db[user_type].insert_one({'name': name, 'email': email, 'password': password})
         return redirect(url_for('login'))
     
     return render_template('signup.html')
 
-# Dashboard route
+
 @app.route('/dashboard')
 def dashboard():
     if 'email' in session:
@@ -56,7 +56,10 @@ def dashboard():
     else:
         return redirect(url_for('login'))
 
-# Logout route
+
+
+
+
 @app.route('/logout')
 def logout():
     session.pop('email', None)
