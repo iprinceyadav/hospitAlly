@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <h2>Login</h2>
+    <form action="/login" method="POST">
+        <label for="user_type">Login as:</label>
+        <select name="user_type">
+            <option value="patients">Patient</option>
+            <option value="doctors">Doctor</option>
+            <option value="staff">Staff</option>
+            <option value="admins">Admin</option>
+        </select>
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required>
+        <br><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <br>
+    <p>Don't have an account? <a href="/signup">Sign up here</a></p>
+
+    <script>
+        window.onload = function() {
+            document.body.classList.add('loaded');
+        }
+    </script>
+
+</body>
+</html>
