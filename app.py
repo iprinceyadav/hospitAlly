@@ -40,6 +40,8 @@ def signup():
         password = request.form['password']  
         
         db[user_type].insert_one({'name': name, 'email': email, 'password': password})
+        session['email'] = email
+        session['user_type'] = user_type
         
         return redirect(url_for('dashboard'))
     
